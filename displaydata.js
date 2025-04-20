@@ -12,9 +12,9 @@ const port = 3000;
 // Connection URI for MongoDB
 const clientt = new OAuth2Client("190022392096-gd9ehpmcvfonm496ip6p5ane43q4g4ce.apps.googleusercontent.com");
 
-const uri = 'mongodb+srv://Shreynik:Dinku2005@cluster0.xh7s8.mongodb.net/';
+const uri = 'mongodb://localhost:27017/';
 const client = new MongoClient(uri);
-let collection, usersCollection, offersCollection, messagesCollection, profileInfosCollection;
+let collection, usersCollection;
 
 // Middleware to parse JSON requests
 app.use(express.json());
@@ -41,13 +41,11 @@ app.use(session({
 async function connectDB() {
     try {
         await client.connect();
-        const database = client.db('Freelancer');
-        collection = database.collection('one'); // Tasks
+        const database = client.db('ClothWebsite');
+      
         usersCollection = database.collection('users'); // Users
-        offersCollection = database.collection('Offer'); // Offers
-        profileInfosCollection = database.collection('profileInfos'); // all profiles
-        messagesCollection = database.collection('messages'); // Messages
-          questionsCollection = database.collection('question'); // FAQ
+    
+    
         console.log('Connected to MongoDB');
     } catch (error) {
         console.error('MongoDB connection error:', error);
