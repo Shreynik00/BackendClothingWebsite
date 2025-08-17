@@ -21,7 +21,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(cors({
-    origin: 'https://shreynik00.github.io/ClothingWebsite/',  // Allow your GitHub Pages site
+    origin: 'https://shreynik00.github.io',  // Allow your GitHub Pages site
     methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Allow specific HTTP methods
     allowedHeaders: ['Content-Type', 'Authorization'],  // Allow specific headers
     credentials: true  // Allow credentials if needed
@@ -215,3 +215,4 @@ app.get('/user/:username', async (req, res) => {
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
+
